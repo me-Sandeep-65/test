@@ -10,4 +10,6 @@ class Principal(db.Model):
     updated_at = db.Column(db.TIMESTAMP(timezone=True), default=helpers.get_utc_now, nullable=False, onupdate=helpers.get_utc_now)
 
     def __repr__(self):
-        return '<Principal %r>' % self.id
+        # return '<Principal %r>' % self.id
+        return f"<id={self.id}, user_id={self.user_id}, createAt={self.created_at}, updatedAt={self.updated_at}>"
+

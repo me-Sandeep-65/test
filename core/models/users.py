@@ -11,7 +11,8 @@ class User(db.Model):
     updated_at = db.Column(db.TIMESTAMP(timezone=True), default=helpers.get_utc_now, nullable=False, onupdate=helpers.get_utc_now)
 
     def __repr__(self):
-        return '<User %r>' % self.username
+        # return '<User %r>' % self.username
+        return f"<User id={self.id}, username={self.username}, email={self.email}, Created At={self.created_at}, Updated At: {self.updated_at}>"
 
     @classmethod
     def filter(cls, *criterion):

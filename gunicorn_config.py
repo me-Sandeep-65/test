@@ -19,7 +19,7 @@ max_requests = int(os.environ.get('GUNICORN_MAX_REQUESTS', 0))
 max_requests_jitter = int(os.environ.get('GUNICORN_MAX_REQUESTS_JITTER', 20))
 graceful_timeout = int(os.environ.get('GUNICORN_WORKER_GRACEFUL_TIMEOUT', 5))
 
-reload = True
+reload = False
 
 limit_request_line = 0
 

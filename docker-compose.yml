@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: fyle-app-container
+    ports:
+      - "8000:7755"
+    networks:
+      - app-network
+    command: ["/bin/bash", "-c", "/app/run.sh"]
+    restart: no  # Ensures that the container is not restarted automatically
+
+
+  test:
+    build: .
+    container_name: fyle-app-test-container
+    networks:
+      - app-network
+    depends_on:
+      - app
+    entrypoint: ["/bin/bash", "-c", "/app/test.sh"]
+    restart: no  # Ensures that the container is not restarted automatically
+
+
+networks:
+  app-network:
+    driver: bridge
